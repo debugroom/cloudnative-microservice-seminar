@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+<title>講義</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="dist/reset.css">
+<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+<!-- Printing and PDF exports -->
+<script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+  </head>
+
+  <body>
+    <p><img src="images/site-qr.png" style="position:absolute; top:0px; right:0px; width:10%" ></p>
+    <div class="reveal">
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section id="1" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.75);">
+      <h3>On-premis Monolithic <br/> VS <br/> CloudNative Microservice Architecture</h3>
+    </section>
+    <section id="2">
+      <section id="2-1">
+        <h6>自己紹介</h6>
+        <div style="display:flex;disply:-webkit-flex;display:-moz-flex;">
+          <div style="width:auto;-webkit-flex : 1 0 400px;-moz-flex : 1 0 400px;flex : 1 0 400px;">
+            <img src="images/profile.jpg" style="float:left" width="100%">
+          </div>
+          <div style="width:auto;-webkit-flex : 1 0 400px;-moz-flex : 1 0 400px;flex : 1 0 400px;">
+          <ul>
+            <div style="font-size:16px; margin:auto">
+            <li style="margin: 10px 0px 10px">名前：川畑 光平</li>
+            <li style="margin: 10px 0px 10px">所属：NTTデータ クラウド技術部</li>
+            <li style="margin: 10px 0px 10px">現在従事している業務
+            <ul>
+              <li style="margin: 10px 0px 10px"><span style="font-size:16px">クラウド技術R&D</span></li>
+              <li style="margin: 10px 0px 10px"><span style="font-size:16px">プロジェクト支援</span></li>
+              <li style="margin: 10px 0px 10px"><span style="font-size:16px">海外グループ連携施策・コミュニティ運営</span></li>
+              <li style="margin: 10px 0px 10px"><span style="font-size:16px">AWS社内推進・人材育成</span></li>
+            </ul>
+            <li style="margin: 10px 0px 10px"><a href="https://aws.amazon.com/jp/partners/ambassadors/?cards-body.sort-by=item.additionalFields.ambassadorName&cards-body.sort-order=asc&cards-body.q=kawabata&cards-body.q_operator=AND" target="_blank">APN AWS Top Engineers &amp; Ambassadors Since 2019</a></li>
+            <li style="margin: 10px 0px 10px">書籍・Web連載記事執筆活動
+              <img src="images/published-stuff.png" style="float:left" width="100%">
+            </div>
+          </div>
+        </ul>
+        </div>
+        </section>
+        <section id="2-4">
+          <div style="display:flex;disply:-webkit-flex;display:-moz-flex;">
+            <div style="margin: auto;width:auto;-webkit-flex : 1 0 200px;-moz-flex : 1 0 300px;flex : 1 0 300px;">
+              <video src="https://debugroom-sample.s3-ap-northeast-1.amazonaws.com/IMG_7405.MOV" loop autoplay muted controls></video><br>
+              <span style="font-size:16px">2023.1 一丁前に面倒見たがるオニイやん</span><br>
+            </div>
+            <div style="width:auto;-webkit-flex : 1 0 300px;-moz-flex : 1 0 300px;flex : 1 0 300px;">
+              <ul>
+                <div style="font-size:14px; margin:auto">
+                <li style="margin: 10px 0px 10px">朝霞市在住(独身の頃は秋葉原に10年在住)</li>
+                <li style="margin: 10px 0px 10px">趣味・ハマったこと
+                  <ul>
+                    <li>[2000〜] ドライブ/読書(時事)/自動2輪/インテリア/Java</li>
+                    <li>[2010〜] 美味しい店探し/Spring/料理/スノボ/AWS/水泳</li>
+                    <li>[2020〜] 技術記事・書籍執筆/DQウォーク/子育て/英語</li>
+                    <li>[2023〜] FF14/子育て</li>
+                  </ul>
+                <li style="margin: 10px 0px 10px">長崎県出身
+                  <ul>
+                    <li> <a href="https://ja.wikipedia.org/wiki/大石賢吾" target="_blank">大石 現長崎県知事</a>と同級生</li>
+                    <li> <a href="https://m.tribe-m.jp/artist/index/28" target="_blank">劇団 EXILEの秋山くん</a>と同級生</li>
+                    <li> <a href="https://deeplink.jp/fixed/profile_deep" target="_blank">DEEPの前田さん</a>は中学校の先輩</li>
+                  </ul>
+                </li>
+                <li style="margin: 10px 0px 10px">学生の頃Appleでバイトしてました(iPodが流行った頃)</li>
+                <li style="margin: 10px 0px 10px">2016年末に結婚</li>
+                <li style="margin: 10px 0px 10px">2019.2に長男が誕生 / 2023.1に長女が誕生</li>
+              </div>
+            </div>
+          </div>
+      </section>
+    </section>
+    <section id="3">
+      <h6>このスライドの使い方</h6>
+      <img src="images/how-to-use-slide.png" style="width: 80%" alt="image"><br/>
+      <span style="font-size:20px">
+      ※当スライドは <a href="https://github.com/hakimel/reveal.js" target="_blank">「reveal.js」</a> を使って、GitHub Pages上に作成
+      </span>
+    </section>
+    <section id="4" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.75);">
+      <h6>本日の講義のアジェンダ</h6>
+      <div style="margin: 20px 0px 0px">
+      <ul>
+        <div style="font-size:20px;margin:auto">
+        <li style="margin: 10px 0px 10px">オンプレミス・モノリシックアプリケーションとは？</li>
+        <li style="margin: 10px 0px 10px">クラウドネイティブ・マイクロサービスアプリケーションとは？</li>
+        <li style="margin: 10px 0px 10px">クラウドネイティブ・マイクロサービスのメリット・デメリット</li>
+        <li style="margin: 10px 0px 10px">グループワーク</li>
+        <li style="margin: 10px 0px 10px">明日のワークショップについて</li>
+        </div>
+      </ul>
+    </section>
+    <section id="5">
+      <section id="5-1" data-background="images/1-3-onpremis-detail.png" style="background-color:rgba(0,0,0,0.75);">
+      <h6>オンプレミスとは?</h6>
+      <div style="margin: 20px 0px 0px">
+      <ul>
+        <div style="font-size:20px;margin:auto">
+        <li style="margin: 30px 0px 10px">もっぱらエンタープライズシステムにおいて、企業の業務を担うために、高度・高価なメインフレームや、汎用的なサーバといったハードウェアを調達して、自社または共同で利用・運営するデータセンタなどにITシステム環境を構成すること</li>
+        <li style="margin: 10px 0px 10px">提供するシステムの利用ユーザ数やピークリクエスト数、サービスレベルに応じて各サーバのサイジング(サーバの種類やスペック、ストレージ容量などの設計)を行う。</li>
+        <li style="margin: 10px 0px 10px">一度構成を決めてしまうと、後から変更をいれるのにも相当な労力がかかるため、ある程度の安全率を見込んで構成しておく</li>
+        </div>
+      </ul>
+      </section>
+      <section id="5-2" data-background-iframe="https://images.prismic.io/and-engineer/b52f5659-9c2c-4ab1-90ed-456cb21390ea_app-1013616_1920.jpg?auto=compress,format"  style="background-color:rgba(0,0,0,0.75);" data-background-interactive>
+        <h6>モノリシックアプリケーションとは？</h6>
+        <div style="margin: 20px 0px 0px">
+        <ul>
+          <div style="font-size:20px;margin:auto">
+          <li style="margin: 30px 0px 10px">アプリケーションアーキテクチャにおける、従来からのモデルであり、複数の機能・処理から構成される</li>
+          <li style="margin: 10px 0px 10px">基本的に単独のアプリケーションとしてデプロイされ、一つのトランザクション処理単位が、アプリケーション内で自己完結するようデザインされる。</li>
+          </div>
+        </ul>
+        </div>
+      </section>
+      <section id="5-3" >
+        <p><span style="font-size:24px">
+        例)モノリシックアーキテクチャで構成されるインターネットバンキング(IB)
+        </p>
+        <p><img src="images/mizuho-direct.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-4">
+        <p><span style="font-size:22px">
+        講師とそのフレンド2名に、お金の貸借があり、それぞれがIBを使って支払う。
+        </p>
+        <p><img src="images/money-transfer-example.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-5">
+        <p><span style="font-size:24px">
+        「振込」が行われるシステムの全体像
+        </p>
+        <p><img src="images/settlement-system-all.png"  style="border:0" width="90%"></p>
+      </section>
+      <section id="5-6">
+        <p><span style="font-size:24px">
+          銀行の代表的なシステム構成
+        </p>
+        <p><img src="images/hub-and-spoke.png"  style="border:0" width="80%"></p>
+      </section id="5-7">
+      <section>
+        <p><span style="font-size:24px">
+          IBのシステム構成
+        </p>
+        <p><img src="images/ib-system.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-8">
+        <p><span style="font-size:24px">
+          IBのモノリシックアプリケーション機能構成
+        </p>
+        <p><img src="images/ib-ap-functions.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-9">
+        <p><span style="font-size:24px">
+          IBにおける振込のユースケース
+        </p>
+        <p><img src="images/ib-transfer-usecase.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-10">
+        <p><span style="font-size:24px">
+          ユースケースを実現するIBの振込関連処理
+        </p>
+        <p><img src="images/ib-transfer-process-list.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-11">
+        <p>
+          <span style="font-size:22px">
+          参考資料
+          </span>
+        </p>
+        <ul>
+          <span style="font-size:22px">
+            <li style="margin: 10px 0px 10px">
+              <p><span style="font-size:22px"><a href="https://www.amazon.co.jp/gp/product/B07H7Z7X8R/ref=ppx_yo_dt_b_d_asin_title_o02?ie=UTF8&psc=1" target="_blank">決済インフラ入門</a></span></p>
+            </li>
+            <li style="margin: 10px 0px 10px">
+              <p><span style="font-size:22px"><a href="https://www.zengin-net.jp/zengin_net/pdf/pamphlet_j.pdf" target="_blank">全国銀行データ通信システム</a></span></p>
+            </li>
+            <li style="margin: 10px 0px 10px">
+              <p><span style="font-size:22px"><a href="https://www.amazon.co.jp/gp/product/B084QBQDZ3/ref=ppx_yo_dt_b_d_asin_title_o06?ie=UTF8&psc=1" target="_blank">みずほ銀行システム統合、苦闘の19年史　史上最大のITプロジェクト「3度目の正直」</a></span></p>
+            </li>
+            <li style="margin: 10px 0px 10px">
+              <p><span style="font-size:22px"><a href="https://www.mizuhobank.co.jp/direct/demo/index.html" target="_blank">みずほダイレクト体験版</a></span></p>
+            </li>
+          </span>
+        </ul>
+      </section>
+    </section>
+    <section id="6">
+      <section id="6-1" data-background="images/agenda.png" style="background-color:rgba(0,0,0,0.75);">
+        <h6>クラウドネイティブとは?</h6>
+        <div style="margin: 20px 0px 0px">
+        <ul>
+          <div style="font-size:20px;margin:auto">
+          <li style="margin: 30px 0px 10px">クラウド環境の特性を最大限活かす技術や手法、要素(コンテナを使っていればクラウドネイティブというわけではない)</li>
+          <li style="margin: 10px 0px 10px">伸縮自在のスケールにより、開発・構築・運用コストの最適化が図れる</li>
+          <li style="margin: 10px 0px 10px">ビッグデータ・大規模並列処理、AIや機械学習、ブロックチェーン、API連携などクラウドを利用することで付加価値が備わる</li>
+          <li style="margin: 10px 0px 10px">銀の弾丸ではない、特にパブリッククラウドは新たなセキュリティ脅威に晒されたり、プライバシーなど非機能要件の達成するために、オンプレミスより柔軟性を欠く場合もある</li>
+          </div>
+        </ul>
+      </section>
+      <section id="6-2" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.75);">
+        <h6>マイクロサービスとは?</h6>
+        <div style="margin: 20px 0px 0px">
+        <ul>
+          <div style="font-size:20px;margin:auto">
+          <li style="margin: 30px 0px 10px">開発チームごとに分担した各サービスの疎結合性／独立性が向上し、開発のアジリティが向上する</li>
+          <li style="margin: 10px 0px 10px">使用頻度の高い特定の機能を、サービス単位でスケールできるため、アプリケーションパフォーマンスが向上する</li>
+          <li style="margin: 10px 0px 10px">独立したサービスの集合でアプリケーションが構成されるため、特定のサービスが障害などで機能不全に陥ってもシステム全体が機能不全に陥ることはなく可用性が向上する</li>
+          <li style="margin: 10px 0px 10px">Webアプリケーション、モバイル、運用端末といったマルチクライアントに加え、サードパーティサービスに利用されることを想定し、ビジネスロジックを切り出してAPI化できる</li>
+          </div>
+        </ul>
+      </section>
+      <section id="6-3">
+        <p>
+          <span style="font-size:24px">クラウドネイティブ・マイクロサービスアーキテクチャ化を考えよう<br/></span>
+        </p>
+        <p><img src="images/ib-ap-functions.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="6-4">
+        <p>
+          <span style="font-size:24px">振込処理をマイクロサービス化する一例<br/></span>
+        </p>
+        <p><img src="images/openapi-app-architecture-1.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="6-5">
+        <p>
+          <span style="font-size:22px">
+          API化・マイクロサービス分割の主な指針・考慮点
+          </span>
+        </p>
+        <ul>
+          <span style="font-size:22px">
+            <li style="margin: 10px 0px 10px">
+              様々なアプリケーションからの利用を想定したユースケースに応じAPIを定義、<span style="border-bottom: solid 2px white;">既存アプリケーション内でドメイン(業務)ロジック処理を分離し</span>、分離したロジックをAPIでラップするイメージで実装する。
+              基本的にドメイン(業務)単位でAPIアプリケーションを構成する。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              アプリケーションの分割単位は部門／部署や開発プロジェクト体制といった点も考慮し、相互の影響が最小化するよう、データベースも含め分割を検討する。
+              ただし、厳密な一貫性が求められるデータは無理にデータベース分散させず、ACIDトランザクションが機能するよう構成する。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              業務横断的(チームを跨ぐくらいの)処理の共通化は考えなくて良い。過度の共通化はマイクロサービスのメリットであるアジリティ向上、影響範囲の極小化が損なわれる。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              各APIの想定アクセス数に応じて、頻度が大きいものはスケールでき、性能拡張がしやすいよう構成することを検討する。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              SLA(Service Level Agreement)や、ビジネスインパクトが大きいAPIがあれば、信頼性・可用性高く構成する。
+            </li>
+          </span>
+        </ul>
+      </section>
+    </section>
+    <section id="7">
+      <section id="7-1" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.75);">
+      <h6>どんなときに使うべき？<br/>クラウドネイティブ・マイクロサービス</h6>
+      <div style="margin: 20px 0px 0px">
+      <ul>
+        <div style="font-size:20px;margin:auto">
+        <li style="margin: 30px 0px 10px">新しいビジネスをWebサービスとして立ち上げ、ユーザのフィードバックを迅速に取り込みながらWebサービスの向上・拡充を図りたい</li>
+        <li style="margin: 10px 0px 10px">既存のレガシーなアプリケーションをモダンに作り替えて、機能の一部をサードパーティに公開して新たな収益源としたい</li>
+        <li style="margin: 10px 0px 10px">クラウドにデータを収集し、集約や加工・分析を施して、別のWebサービスとAPI連携させて新たな付加価値を産み出したり、ユーザエクスペリエンスを高めたい</li>
+        </div>
+      </ul>
+      </section>
+      <section id="7-2" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.75);">
+        <h6>クラウドネイティブ・マイクロサービスの利点</h6>
+        <ul>
+        <div style="font-size:20px; margin:auto">
+          <li style="margin: 10px 0px 10px">素早くビジネスを立ち上げるため、Webサービスを実現するアプリケーションをクラウド環境上に構築する</li>
+          <li style="margin: 10px 0px 10px">新機能の開発やユーザのフィードバックを迅速に取り込み・反映するため、アプリケーションを細分化して疎結合に構築する</li>
+          <li style="margin: 10px 0px 10px">サービスの利用が増えてきた場合に備えて、利用頻度の高いものをスケール可能にしてビジネス機会を逃さないようにする</li>
+          <li style="margin: 10px 0px 10px">何らかの理由でサービスを中止する場合も、他に影響なく簡単に破棄できる</li>
+        </div>
+        </ul>
+      </section>
+      <section id="7-3" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.90);">
+        <h6>複雑性とのトレードオフ</h6>
+        <div style="font-size:20px; margin:auto">
+          <table>
+            <colgroup>
+              <col style="width:30%;">
+              <col style="width:70%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>アーキテクチャ課題例</th>
+                <th>詳細</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>サービス実行フロー制御</td>
+                <td>処理のオーケストレーション／コレオグラフィといったサービス実行フロー制御、エラーハンドリング方式</td>
+              </tr>
+              <tr>
+                <td>トランザクション管理</td>
+                <td>複数の更新系Backend Serviceを実行する場合の業務トランザクションのロールバックや補償トランザクション</td>
+              </tr>
+              <tr>
+                <td>ステートフル共有データストア</td>
+                <td>アプリケーションにスケーラビリティを持たせることを目的に、ステートフル(状態)データを共有するためのデータストアの利用や、データストア障害に伴うフェイルオーバー発生時のエラーハンドリング</td>
+              </tr>
+              <tr>
+                <td>サービスディスカバリ方式</td>
+                <td>マイクロサービスが動的にスケールアウト／縮退する場合のBackend Service APIのサービスディスカバリ</td>
+              </tr>
+              <tr>
+                <td>サービス間通信方式</td>
+                <td>Backend Service APIを呼び出す場合の同期／非同期の使い分け、リトライ／サーキットブレイカー処理</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="7-4" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.90);">
+        <h6>複雑性とのトレードオフ</h6>
+        <div style="font-size:20px; margin:auto">
+          <table>
+            <colgroup>
+              <col style="width:30%;">
+              <col style="width:70%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>アーキテクチャ課題例</th>
+                <th>詳細</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>サービス認証／認可方式</td>
+                <td>OIDC、OAuth2.0に準拠した、JWTを使ったアクセストークンの連携方式</td>
+              </tr>
+              <tr>
+                <td>ロギング／モニタリング方式</td>
+                <td>アプリケーション／サービスを跨いでトレーサビリティを確保するためのロギング、各サービスごとのモニタリング</td>
+              </tr>
+              <tr>
+                <td>Backend Serviceステートレス化／冪等性</td>
+                <td>スケールアウトを容易にする、Backend Serviceのステートレス化を前提としたREST準拠API規約／ルール(HTTPステータスコードなど)、耐障害性向上のための冪等性をもつ処理実装</td>
+              </tr>
+              <tr>
+                <td>クラウドマネージドサービス連携</td>
+                <td>揮発性であるコンテナ／サーバレス環境下で、データ永続化のためのマネージドストレージやキューを利用する場合の方式</td>
+              </tr>
+              <tr>
+                <td>マルチクライアントにおけるサービス分割</td>
+                <td>Webアプリケーション以外にも、モバイルなどのSPAクライアント、サードパーティサービス連携がある場合のサービス分割／ビジネスロジックの分離方針</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+    <section id="8">
+      <section id="8-1" data-background="images/microservice-concept.png" style="background-color:rgba(0,0,0,0.75);">
+      <h6>グループディスカッション<br/>あなたの担当するシステムでは、<br/>どんなときに使うべき？<br/>クラウドネイティブ・マイクロサービス</h6>
+      <div style="margin: 20px 0px 0px">
+      <ul>
+        <div style="font-size:20px;margin:auto">
+        <li style="margin: 30px 0px 10px">ご自身の携わる業務やシステムの中で、これはクラウドネイティブ・マイクロサービスにすべきだというものがあるか考えてみてください(業務で携わってなければ、自分の身近なWebサービスなどでも可)</li>
+        <li style="margin: 10px 0px 10px">なぜ、そのように考えたのか、そうすることで、どのようなメリットが見込まれるのかを整理し、グループのメンバーに(お客さまにするつもりで)説明してください。</li>
+        <li style="margin: 10px 0px 10px">逆にクラウドネイティブ・マイクロサービスにすることで好ましくないことが発生しないか、逆にしない方が良いものがあるか考えてみて、グループメンバーと議論してみてください。</li>
+        <li style="margin: 10px 0px 10px">グループメンバーは、お客さまの立場になってその意見に賛成できるかどうか考えてフィードバックしてあげてください。</li>
+        </div>
+      </ul>
+      </section>
+    </section>
+    <section id="9">
+        <section id="9-1" data-background="images/microservice.png" style="background-color:rgba(0,0,0,0.75);">
+          <h6>明日の実践型ワークショップのテーマ<img class="emoji" alt=":raising_hand:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f64b.png"></h6>
+          <p><span style="font-size:24px">クラウドネイティブ・マイクロサービスの基本となるアプリケーションを作って、<br/>オンプレ・モノリシックとの違いやその複雑さを体験してみよう</span></p>
+          <p><span style="font-size:24px">世界No1シェアのクラウドAWS上で、マネージドサービスを使用して作って体験してみる</span></p>
+        </section>
+        <section id="9-2">
+            <p><span style="font-size:24px">クラウドネイティブアプリケーションの基本となるAWSサービス(1)</span></p>
+          <div style="font-size:20px; margin:auto">
+            <table>
+              <colgroup>
+                <col style="width:20%;">
+                <col style="width:80%;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>サービス名</th>
+                  <th>詳細</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span style="color:yellow">Amazon ECS⭐️</span></td>
+                  <td><span style="color:yellow">アプリケーションがデプロイされたDockerコンテナを実行するコンテナオーケストレーションサービス。コンテナの死活監視やオートスケーリングなどを実行する。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4354" target="_blank">
+                    連載「AWSで作るクラウドネイティブアプリケーションの基本」の第4回</a>を参照のこと。</span></td>
+                </tr>
+                <tr>
+                  <td>Amazon EKS</td>
+                  <td>アプリケーションがデプロイされたコンテナを実行する、オープンソースのコンテナオーケストレーションツールKuberntesのマネージドサービス。機能的にはECSと同等。</td>
+                </tr>
+                <tr>
+                  <td>Amazon DynamoDB</td>
+                  <td>スケーラビリティの確保が容易な、単一障害点のないAP型データベース。詳細は、<a href="https://news.mynavi.jp/itsearch/article/cloud/4479" target="_blank">連載「AWSで作るクラウドネイティブアプリケーションの基本」の第15回</a>を参照。</td>
+                </tr>
+                <tr>
+                  <td>Amazon API Gateway</td>
+                  <td>アプリケーションのAPIゲートウェイとして利用できるサービス。REST APIの定義やデプロイ、サービスへのHTTPリクエスト／レスポンス変換などを実行する。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4321" target="_blank">連載「AWSで作るクラウドネイティブアプリケーションの基本」の第3回</a>を参照のこと。</td>
+                </tr>
+                <tr>
+                  <td>AWS Lambda</td>
+                  <td>サーバレスでアプリケーションの実行が可能なサービス。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4318" target="_blank">連載「AWSで作るクラウドネイティブアプリケーションの基本」の第2回</a>を参照のこと。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="9-3">
+            <p><span style="font-size:24px">マイクロサービスアプリケーション構築をサポートするAWSサービス(1)</span></p>
+          <div style="font-size:20px; margin:auto">
+            <table>
+              <colgroup>
+                <col style="width:20%;">
+                <col style="width:80%;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>サービス名</th>
+                  <th>詳細</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Elastic Load Balancing</td>
+                  <td>Classic Load Balancer、Application LoadBalancer、Network LoadBalancerで構成されるサービス。ALBでは、各コンテナにデプロイされたマイクロサービスのIP／ポートを意識せずにパスベースでルーティングを行うことができる。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4359" target="_blank">連載「AWSで作るクラウドネイティブアプリケーションの基本」の第5回</a>を参照のこと。</td>
+                </tr>
+                <tr>
+                  <td>Route53</td>
+                  <td>通常のDNSサービスに加えて、ECS上にデプロイしたマイクロサービスのサービスレジストリ／ディスカバリ機能やオンプレミスや別のデータセンタからのルーティングなどのリゾルバ機能がある。</td>
+                </tr>
+                <tr>
+                  <td>Amazon ElastiCache</td>
+                  <td>複数のマイクロサービスアプリケーションのデータ共有のためのキャッシュストレージとして利用できるサービス。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4523" target="_blank">連載「AWSで作るクラウドネイティブアプリケーションの基本」の第19回</a>を参照。</td>
+                </tr>
+                <tr>
+                  <td>Amazon SQS</td>
+                  <td>マネージドキューサービス。マイクロサービス間の非同期メッセージ連携などで利用する。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4656" target="_blank">連載「AWSで作るクラウドネイティブアプリケーションの基本」の第28回</a>を参照のこと。</td>
+                </tr>
+                <tr>
+                  <td>Amazon SNS</td>
+                  <td>Publish/Subscribe型のメッセージ配信サービス。複数のマイクロサービスへメッセージを連携する場合などで利用する。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/4682" target="_blank">連載「AWSで実践！基盤構築・デプロイ自動化」の第18回</a>を参照のこと。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="9-4">
+            <p><span style="font-size:24px">マイクロサービスアプリケーション構築をサポートするAWSサービス(2)</span></p>
+          <div style="font-size:20px; margin:auto">
+            <table>
+              <colgroup>
+                <col style="width:20%;">
+                <col style="width:80%;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>サービス名</th>
+                  <th>詳細</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span style="color:yellow">AWS Cognito★</span></td>
+                  <td><span style="color:yellow">認証／認可サービス。外部の認証Providerとの連携や、IAMロールに応じたAWSリソースへのアクセス制御、マルチデバイス間でデータ同期する機能などもある。</span></td>
+                </tr>
+                <tr>
+                  <td>Cloud Map</td>
+                  <td>クラウドリソースのDNSサービス。IPアドレスが割り当てられているEC2やRDSなどのAWSリソースに加え、LambdaやDynamoDB、SQSといったARNが割り当てられたリソースに対しても名前解決が可能。</td>
+                </tr>
+                <tr>
+                  <td>App Mesh</td>
+                  <td>オープンソースのサービスメッシュプロキシEnvoyのマネージドサービス。サービス間の通信、監視、ログやメトリクス出力などを実行できる。</td>
+                </tr>
+                <tr>
+                  <td><span style="color:yellow">AWS X-Ray⭐️</span></td>
+                  <td><span style="color:yellow">マイクロサービスアプリケーションを分析することができるサービス。サービス実行時間の計測やトレース、フィルタリングによる可視化などが行える。詳細は、<a href="https://news.mynavi.jp/itsearch/article/devsoft/5185" target="_blank">連載「AWSで作るマイクロサービス」の第8回</a>を参照のこと。</span></td>
+                </tr>
+                <tr>
+                  <td>Amazon MSK (Managed Streaming for Apache Kafka)</td>
+                  <td>オープンソースのメッセージキューミドルウェアであるApache Kafkaのマネージドサービス。非同期メッセージ連携などで利用する。Kafkaではデータの流量制御等きめ細やかな設定が可能</td>
+                </tr>
+                <tr>
+                  <td>Amazon MQ</td>
+                  <td>マイクロサービス間の非同期メッセージ連携などで利用する。メッセージの到達保証を担保したい場合に利用する</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+  </section>
+  </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+  // More info about initialization & config:
+  // - https://revealjs.com/initialization/
+  // - https://revealjs.com/config/
+  Reveal.initialize({
+    hash: true,
+
+    // Learn about plugins: https://revealjs.com/plugins/
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+  });
+</script>
+
+
+  </body>
+</html>
