@@ -113,7 +113,6 @@
         <li style="margin: 10px 0px 10px">クラウドネイティブ・マイクロサービスアプリケーションとは？</li>
         <li style="margin: 10px 0px 10px">クラウドネイティブ・マイクロサービスのメリット・デメリット</li>
         <li style="margin: 10px 0px 10px">グループワーク</li>
-        <li style="margin: 10px 0px 10px">明日のワークショップについて</li>
         </div>
       </ul>
     </section>
@@ -189,6 +188,96 @@
         <p><img src="images/ib-transfer-process-list.png"  style="border:0" width="80%"></p>
       </section>
       <section id="5-11">
+        <p><span style="font-size:24px">
+          IBを使った振込処理の流れ(IB→勘定系システム)
+        </p>
+        <p><img src="images/ib-transfer-process-1.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-12">
+        <p><span style="font-size:24px">
+          IBを使った振込処理の流れ(勘定系システム→RC)
+        </p>
+        <p><img src="images/ib-transfer-process-2.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-13">
+        <p><span style="font-size:24px">
+          IBを使った振込処理の流れ(RC→全銀)
+        </p>
+        <p><img src="images/ib-transfer-process-3.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-14">
+        <p><span style="font-size:24px">
+          全銀におけるネッティング処理
+        </p>
+        <p><img src="images/netting-1.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-15">
+        <p><span style="font-size:24px">
+          全銀におけるネッティング処理
+        </p>
+        <p><img src="images/netting-2.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-16">
+        <p><span style="font-size:24px">
+          全銀におけるネッティング処理
+        </p>
+        <p><img src="images/netting-3.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-17">
+        <p><span style="font-size:24px">
+          IBを使った振込処理の流れ(全銀→振込先対象の銀行(非仕向先銀行))
+        </p>
+        <p><img src="images/ib-transfer-process-4.png"  style="border:0" width="80%"></p>
+      </section>
+      <section id="5-18">
+        <p><span style="font-size:24px">
+          IBにおける振込におけるポイント・補足事項
+        </p>
+        <ul>
+          <span style="font-size:22px">
+            <li style="margin: 10px 0px 10px">
+              別の銀行向けの振込は簡単にロールバックできない(トランザクション自体を消せない。「組み戻し」するには別途手数料。)
+            </li>
+            <li style="margin: 10px 0px 10px">
+              勘定系システムは運転時間が決まっている。停止時間帯はIBのDBでデータをため込んで、営業日のオンライン時間になったら時間起動バッチで処理が実行される。
+              (2018年10月からモアタイム(営業日の15:30以降も処理を受けるシステム)ができたので、停止時間は各銀行次第)
+            </li>
+            <li style="margin: 10px 0px 10px">
+              個人の預金データの元データ(元帳)は勘定系システムにある。IBのDBでは、勘定系システムが停止している時間帯のデータ取得(金融機関情報、支店情報等)に加えて、トランザクションの記録が主な用途。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              一つのシステムで業務トランザクションが完結するわけではない。各システムでの連携は、システムダウンを想定し、信頼性・可用性を高めたシステム構成でデータを永続化し、トランザクションデータを連携する。
+              各システムのトランザクションデータは結果整合性により担保される(そのリスクは銀行が負っている)。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              キャッシュレス決済等、同じ資金決済データでも、一件あたりのトランザクションの金額が大きい(ミッションクリティカルなシステムとしては国内最高レベル)。1件でも不具合は許されない。
+              なお、基本的に決済は種類によって適用する法律が決まっている(資金決済法、銀行法、割賦販売法、外国為替に関する法律)ため、クラウド化を検討するにもシステム構成に注意が必要である。
+            </li>
+          </span>
+        </ul>
+      </section>
+      <section id="5-18" data-background-iframe="https://images.prismic.io/and-engineer/b52f5659-9c2c-4ab1-90ed-456cb21390ea_app-1013616_1920.jpg?auto=compress,format"  style="background-color:rgba(0,0,0,0.75);" data-background-interactive>
+        <p><span style="font-size:32px">
+          オンプレミス・モノリシックの本質
+        </p>
+        <ul>
+          <span style="font-size:22px">
+            <li style="margin: 10px 0px 10px">
+              昔ながらにあるモノ・やり方だが、決してダメなモノではない
+            </li>
+            <li style="margin: 10px 0px 10px">
+              安定した・パブリッククラウドより安全な環境でWebサービスを提供することができる
+            </li>
+            <li style="margin: 10px 0px 10px">
+              やり方を工夫すれば、アジリティを得ることもできる。ただし、物理的に環境を作らないといけないので、初期構築や構成変更に時間がかかることは確か。
+            </li>
+            <li style="margin: 10px 0px 10px">
+              万能包丁・銀の弾丸はない、優先度を見極め、機能・非機能要件に応じて、クラウド・オンプレ/モノリス・マイクロサービスどっちも使い分けれることが重要。
+            </li>
+          </span>
+        </ul>
+      </section>
+      <section id="5-19" data-background-iframe="https://images.prismic.io/and-engineer/b52f5659-9c2c-4ab1-90ed-456cb21390ea_app-1013616_1920.jpg?auto=compress,format"  style="background-color:rgba(0,0,0,0.75);" data-background-interactive>
         <p>
           <span style="font-size:22px">
           参考資料
@@ -394,6 +483,7 @@
       </ul>
       </section>
     </section>
+<!--
     <section id="9">
         <section id="9-1" data-background="images/microservice.png" style="background-color:rgba(0,0,0,0.75);">
           <h6>明日の実践型ワークショップのテーマ<img class="emoji" alt=":raising_hand:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f64b.png"></h6>
@@ -524,6 +614,7 @@
           </div>
         </section>
       </section>
+-->
   </section>
   </div>
 </div>
